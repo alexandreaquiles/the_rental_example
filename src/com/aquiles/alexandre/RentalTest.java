@@ -118,14 +118,32 @@ public class RentalTest {
 
 		Assert.assertEquals(expected, customer.statement());
 	} 
-
+	
 	@Test
 	public void expectedStatementTest() {
-		String result = new StatementConfig().addPartialAmount("Groundhog Day", 3.0).addTotalAmount(3.0).addFrequentRenterPoints(1).expectedStatement();
+		String result = new StatementConfig()
+			.addPartialAmount("Groundhog Day", 3.0)
+			.addTotalAmount(3.0)
+			.addFrequentRenterPoints(1)
+			.expectedStatement();
 		String expected = "Rental record for Luke\n";
 		expected += "\tGroundhog Day\t3.0\n";
 		expected += "Amount owed is 3.0\n";
 		expected += "You earned 1 frequent renter points";
+		Assert.assertEquals(expected, result);
+	}
+
+	@Test
+	public void expectedHTMLStatementTest() {
+		String result = new StatementConfig()
+			.addPartialAmount("Groundhog Day", 3.0)
+			.addTotalAmount(3.0)
+			.addFrequentRenterPoints(1)
+			.expectedHTMLStatement();
+		String expected = "<P><H1>Rentals for <EM>Luke</EM></H1></P>\n";
+		expected += "<P>Groundhog Day: 3.0</P>\n";
+		expected += "<P>You owe <EM>3.0</EM></P>\n";
+		expected += "<P>On this rental you earned <EM>1</EM> frequent renter points</P>";
 		Assert.assertEquals(expected, result);
 	}
 
@@ -179,6 +197,19 @@ class StatementConfig {
 		return formatter.toString();
 	}
 
+	public String expectedHTMLStatement() {
+		String format = "<P><H1>Rentals for <EM>Luke</EM></H1></P>\n";
+		for (int i= 0; i < partialAmountsByMovieName.size(); i++) {
+			format += "<P>%s: %.1f</P>\n";
+		}
+		format += "<P>You owe <EM>%.1f</EM></P>\n";
+		format += "<P>On this rental you earned <EM>%d</EM> frequent renter points</P>";
+		
+		Formatter formatter = new Formatter();
+		formatter.format(Locale.US, format, getParameters());
+		
+		return formatter.toString();
+	}
 	private Object[] getParameters() {
 		Object[] parameters = new Object[2*partialAmountsByMovieName.size()+2];
 		int i = -1;
