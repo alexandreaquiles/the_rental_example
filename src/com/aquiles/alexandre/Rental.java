@@ -20,8 +20,8 @@ public class Rental {
 		return daysRented;
 	}
 
-	double getCharge() {
-		double result = 0;
+	public Double getCharge() {
+		Double result = 0.0;
 		switch(getMovie().getPriceCode()) {
 		case Movie.REGULAR:
 			result += 2;
@@ -40,7 +40,7 @@ public class Rental {
 		return result;
 	}
 	
-	int getFrequentRenterPoints() {
+	public Integer getFrequentRenterPoints() {
 		if(getMovie().getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1)
 			return 2;
 		else 
