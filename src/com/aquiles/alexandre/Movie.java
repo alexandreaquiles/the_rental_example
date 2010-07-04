@@ -35,6 +35,8 @@ public class Movie {
 		case Movie.CHILDRENS:
 			price = new ChildrensPrice();
 			break;
+		default:
+			throw new IllegalArgumentException("Invalid price code.");
 			
 		}
 	}
