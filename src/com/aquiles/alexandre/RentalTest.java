@@ -120,6 +120,25 @@ public class RentalTest {
 	} 
 	
 	@Test
+	public void variousRentalsInHTML() {
+		Customer customer = createCustomer();
+		addRental(customer, "Groundhog Day", Movie.REGULAR, 3);
+		addRental(customer, "X-Men X", Movie.NEW_RELEASE, 2);
+		addRental(customer, "Toy Story", Movie.CHILDRENS, 4);
+
+		String expected = 
+				new StatementConfig()
+				.addPartialAmount("Groundhog Day", 3.5)
+				.addPartialAmount("X-Men X", 6.0)
+				.addPartialAmount("Toy Story", 3.0)
+				.addTotalAmount(12.5)
+				.addFrequentRenterPoints(4)
+				.expectedHTMLStatement();
+
+		Assert.assertEquals(expected, customer.statementAsHTML());
+	} 
+
+	@Test
 	public void expectedStatementTest() {
 		String result = new StatementConfig()
 			.addPartialAmount("Groundhog Day", 3.0)

@@ -51,6 +51,11 @@ public class Customer {
 		return totalAmount;
 	}
 
+	public String statementAsHTML() {
+		// TODO Auto-generated method stub
+		return "";
+	}
+
 }
 
 	
