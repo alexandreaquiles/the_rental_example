@@ -9,4 +9,11 @@ public class ChildrensPrice extends Price {
 		return Movie.CHILDRENS;
 	}
 
+	@Override
+	public Double getCharge(Integer daysRented) {
+		Double result = 1.5;
+		if(daysRented > 3)
+			result += (daysRented - 3) * 1.5;
+		return result;
+	}
 }
