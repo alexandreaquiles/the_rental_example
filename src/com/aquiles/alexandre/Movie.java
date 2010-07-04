@@ -46,7 +46,7 @@ public class Movie {
 	}
 
 	public Double getCharge(Integer daysRented) {
-		return price.getCharge(this, daysRented);
+		return price.getCharge(daysRented);
 	}
 
 	public Integer getFrequentRenterPoints(Integer daysRented) {
