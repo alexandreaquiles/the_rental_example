@@ -6,10 +6,6 @@ public abstract class Price {
 
 	public abstract Integer getPriceCode();
 
-	public Double getCharge(Movie movie, Integer daysRented) {
-		return getCharge(daysRented);
-	}
-
 	public Double getCharge(Integer daysRented) {
 		Double result = 0.0;
 		switch(getPriceCode()) {
