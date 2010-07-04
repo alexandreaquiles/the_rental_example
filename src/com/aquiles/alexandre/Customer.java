@@ -28,7 +28,7 @@ public class Customer {
 		String result = "Rental record for " + getName() + "\n";
 		for(Rental rental : rentals) {
 			double thisAmount = 0;
-			thisAmount = calculateAmount(rental, thisAmount);
+			thisAmount = calculateAmount(rental);
 			
 			//add frequent renter points
 			frequentRenterPoints++;
@@ -48,7 +48,8 @@ public class Customer {
 		return result;
 	}
 
-	private double calculateAmount(Rental rental, double result) {
+	private double calculateAmount(Rental rental) {
+		double result = 0;
 		switch(rental.getMovie().getPriceCode()) {
 		case Movie.REGULAR:
 			result += 2;
