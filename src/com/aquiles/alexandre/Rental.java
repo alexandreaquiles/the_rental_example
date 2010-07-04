@@ -40,7 +40,7 @@ public class Rental {
 		return result;
 	}
 	
-	int getFrequentRenterPoints(int frequentRenterPoints, Rental rental) {
+	int getFrequentRenterPoints(int frequentRenterPoints) {
 		//add frequent renter points
 		frequentRenterPoints++;
 
