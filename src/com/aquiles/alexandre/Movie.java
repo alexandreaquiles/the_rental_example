@@ -29,20 +29,19 @@ public class Movie {
 
 	public Double getCharge(Integer daysRented) {
 		Double result = 0.0;
-		Integer daysRented2 = daysRented;
 		switch(priceCode) {
 		case Movie.REGULAR:
 			result += 2;
-			if(daysRented2 > 2)
-				result += (daysRented2 - 2) * 1.5;
+			if(daysRented > 2)
+				result += (daysRented - 2) * 1.5;
 			break;
 		case Movie.NEW_RELEASE:
-			result += daysRented2 * 3;
+			result += daysRented * 3;
 			break;
 		case Movie.CHILDRENS:
 			result += 1.5;
-			if(daysRented2 > 3)
-				result += (daysRented2 - 3) * 1.5;
+			if(daysRented > 3)
+				result += (daysRented - 3) * 1.5;
 			break;
 		}
 		return result;
