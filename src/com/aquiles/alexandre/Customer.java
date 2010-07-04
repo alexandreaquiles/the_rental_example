@@ -35,6 +35,19 @@ public class Customer {
 		return result;
 	}
 
+	public String statementAsHTML() {
+		String result = "<P><H1>Rentals for <EM>" + getName() + "</EM></H1></P>\n";
+		for(Rental rental : rentals) {
+			//show figures for this rental
+			result += "<P>" + rental.getMovie().getTitle() + ": " + String.valueOf(rental.getCharge()) + "</P>\n";
+		}
+		
+		//add footer lines
+		result += "<P>You owe <EM>" + String.valueOf(getTotalCharge()) + "</EM></P>\n";
+		result += "<P>On this rental you earned <EM>" + String.valueOf(getTotalFrequentRenterPoints()) + "</EM> frequent renter points</P>";
+		return result;
+	}
+
 	private int getTotalFrequentRenterPoints() {
 		int totalFrequentRenterPoints = 0;
 		for(Rental rental : rentals) {
@@ -49,19 +62,6 @@ public class Customer {
 			totalAmount += rental.getCharge();
 		}
 		return totalAmount;
-	}
-
-	public String statementAsHTML() {
-		String result = "<P><H1>Rentals for <EM>" + getName() + "</EM></H1></P>\n";
-		for(Rental rental : rentals) {
-			//show figures for this rental
-			result += "<P>" + rental.getMovie().getTitle() + ": " + String.valueOf(rental.getCharge()) + "</P>\n";
-		}
-		
-		//add footer lines
-		result += "<P>You owe <EM>" + String.valueOf(getTotalCharge()) + "</EM></P>\n";
-		result += "<P>On this rental you earned <EM>" + String.valueOf(getTotalFrequentRenterPoints()) + "</EM> frequent renter points</P>";
-		return result;
 	}
 
 }
