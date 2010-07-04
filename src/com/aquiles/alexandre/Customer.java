@@ -23,7 +23,6 @@ public class Customer {
 	}
 
 	public String statement() {
-		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		String result = "Rental record for " + getName() + "\n";
 		for(Rental rental : rentals) {
@@ -31,7 +30,6 @@ public class Customer {
 			
 			//show figures for this rental
 			result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
-			totalAmount += rental.getCharge();
 		}
 		
 		//add footer lines
