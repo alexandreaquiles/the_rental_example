@@ -27,10 +27,6 @@ public class Movie {
 		return title;
 	}
 
-	public Double getCharge(Rental rental, Integer daysRented) {
-		return getCharge(daysRented);
-	}
-
 	public Double getCharge(Integer daysRented) {
 		Double result = 0.0;
 		Integer daysRented2 = daysRented;
