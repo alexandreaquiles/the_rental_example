@@ -33,19 +33,20 @@ public class Movie {
 
 	public Double getCharge(Rental rental, Integer daysRented) {
 		Double result = 0.0;
+		Integer daysRented2 = daysRented;
 		switch(priceCode) {
 		case Movie.REGULAR:
 			result += 2;
-			if(rental.getDaysRented() > 2)
-				result += (rental.getDaysRented() - 2) * 1.5;
+			if(daysRented2 > 2)
+				result += (daysRented2 - 2) * 1.5;
 			break;
 		case Movie.NEW_RELEASE:
-			result += rental.getDaysRented() * 3;
+			result += daysRented2 * 3;
 			break;
 		case Movie.CHILDRENS:
 			result += 1.5;
-			if(rental.getDaysRented() > 3)
-				result += (rental.getDaysRented() - 3) * 1.5;
+			if(daysRented2 > 3)
+				result += (daysRented2 - 3) * 1.5;
 			break;
 		}
 		return result;
