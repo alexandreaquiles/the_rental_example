@@ -47,8 +47,8 @@ public class Movie {
 		return result;
 	}
 
-	public Integer getFrequentRenterPoints(Rental rental) {
-		if(rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDaysRented() > 1)
+	public Integer getFrequentRenterPoints(Integer daysRented) {
+		if(priceCode == Movie.NEW_RELEASE && daysRented > 1)
 			return 2;
 		else 
 			return 1;
