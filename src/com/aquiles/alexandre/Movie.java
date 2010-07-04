@@ -1,5 +1,10 @@
 package com.aquiles.alexandre;
 
+import com.aquiles.alexandre.pricing.ChildrensPrice;
+import com.aquiles.alexandre.pricing.NewReleasePrice;
+import com.aquiles.alexandre.pricing.Price;
+import com.aquiles.alexandre.pricing.RegularPrice;
+
 public class Movie {
 
 	public static final int REGULAR = 0;
@@ -7,7 +12,7 @@ public class Movie {
 	public static final int CHILDRENS = 2;
 
 	private String title;
-	private Integer priceCode;
+	private Price price;
 	
 	public Movie(String title, Integer priceCode) {
 		super();
@@ -16,11 +21,22 @@ public class Movie {
 	}
 
 	public Integer getPriceCode() {
-		return priceCode;
+		return price.getPriceCode();
 	}
 
 	public void setPriceCode(Integer priceCode) {
-		this.priceCode = priceCode;
+		switch(priceCode) {
+		case Movie.REGULAR:
+			price = new RegularPrice();
+			break;
+		case Movie.NEW_RELEASE:
+			price = new NewReleasePrice();
+			break;
+		case Movie.CHILDRENS:
+			price = new ChildrensPrice();
+			break;
+			
+		}
 	}
 
 	public String getTitle() {
