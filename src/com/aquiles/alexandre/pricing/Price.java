@@ -9,8 +9,8 @@ public abstract class Price {
 
 	public abstract Double getCharge(Integer daysRented);
 
-	public Integer getFrequentRenterPoints(Movie movie, Integer daysRented) {
-		if(movie.getPriceCode() == Movie.NEW_RELEASE && daysRented > 1)
+	public Integer getFrequentRenterPoints(Integer daysRented) {
+		if(getPriceCode() == Movie.NEW_RELEASE && daysRented > 1)
 			return 2;
 		else 
 			return 1;

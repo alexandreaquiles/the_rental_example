@@ -50,7 +50,7 @@ public class Movie {
 	}
 
 	public Integer getFrequentRenterPoints(Integer daysRented) {
-		return price.getFrequentRenterPoints(this, daysRented);
+		return price.getFrequentRenterPoints(daysRented);
 	}
 	
 	
