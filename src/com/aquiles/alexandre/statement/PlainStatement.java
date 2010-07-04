@@ -11,7 +11,7 @@ public class PlainStatement extends Statement {
 
 	@Override
 	protected String footer() {
-		return "Amount owed is " + String.valueOf(customer.getTotalCharge()) + "\n" + "You earned " + String.valueOf(customer.getTotalFrequentRenterPoints()) + " frequent renter points";
+		return "Amount owed is " + String.valueOf(getCustomer().getTotalCharge()) + "\n" + "You earned " + String.valueOf(getCustomer().getTotalFrequentRenterPoints()) + " frequent renter points";
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class PlainStatement extends Statement {
 
 	@Override
 	protected String header() {
-		return "Rental record for " + customer.getName() + "\n";
+		return "Rental record for " + getCustomer().getName() + "\n";
 	}
 
 }

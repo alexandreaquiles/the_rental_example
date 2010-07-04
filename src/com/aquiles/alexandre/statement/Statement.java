@@ -6,15 +6,19 @@ import com.aquiles.alexandre.Rental;
 
 public abstract class Statement {
 	
-	protected Customer customer;
+	private Customer customer;
 	
 	Statement(Customer customer) {
 		this.customer = customer;
 	}
+	
+	public Customer getCustomer() {
+		return customer;
+	}
 
 	public String generateStatement(){
 		String result = header();
-		for(Rental rental : customer.getRentals()) {
+		for(Rental rental : getCustomer().getRentals()) {
 			//show figures for this rental
 			result += detail(rental);
 		}

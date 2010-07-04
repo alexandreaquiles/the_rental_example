@@ -21,7 +21,7 @@ public class Customer {
 	}
 
 	public void addRental(Rental rental) {
-		rentals.add(rental);
+		getRentals().add(rental);
 	}
 
 	public String statement() {
@@ -34,7 +34,7 @@ public class Customer {
 
 	public Integer getTotalFrequentRenterPoints() {
 		Integer totalFrequentRenterPoints = 0;
-		for(Rental rental : rentals) {
+		for(Rental rental : getRentals()) {
 			totalFrequentRenterPoints += rental.getFrequentRenterPoints();
 		}
 		return totalFrequentRenterPoints;
@@ -42,7 +42,7 @@ public class Customer {
 
 	public Double getTotalCharge() {
 		Double totalAmount = 0.0;
-		for(Rental rental : rentals) {
+		for(Rental rental : getRentals()) {
 			totalAmount += rental.getCharge();
 		}
 		return totalAmount;
