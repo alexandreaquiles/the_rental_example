@@ -21,7 +21,7 @@ public class Rental {
 	}
 
 	public Double getCharge() {
-		return movie.getCharge(this, null);
+		return movie.getCharge(this, daysRented);
 	}
 	
 	public Integer getFrequentRenterPoints() {
