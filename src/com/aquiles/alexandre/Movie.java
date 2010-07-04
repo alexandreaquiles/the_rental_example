@@ -28,8 +28,12 @@ public class Movie {
 	}
 
 	public Double getCharge(Rental rental) {
+		return getCharge(rental, null);
+	}
+
+	public Double getCharge(Rental rental, Integer daysRented) {
 		Double result = 0.0;
-		switch(rental.getMovie().getPriceCode()) {
+		switch(priceCode) {
 		case Movie.REGULAR:
 			result += 2;
 			if(rental.getDaysRented() > 2)
