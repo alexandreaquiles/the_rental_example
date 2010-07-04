@@ -9,4 +9,8 @@ public class NewReleasePrice extends Price {
 		return Movie.NEW_RELEASE;
 	}
 
+	@Override
+	public Double getCharge(Integer daysRented) {
+		return daysRented * 3.0;
+	}
 }
